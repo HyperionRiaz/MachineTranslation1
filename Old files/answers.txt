@@ -1,0 +1,171 @@
+			
+'''
+*** Word translation Probabilities
+a	buch	2.24846280002e-84
+big	buch	1.27965395288e-67
+book	buch	1.0
+house	buch	0.0
+small	buch	1.27965395288e-67
+the	buch	1.80997897173e-31
+a	haus	1.80997897173e-31
+big	haus	1.27965395288e-67
+book	haus	0.0
+house	haus	1.0
+small	haus	1.27965395288e-67
+the	haus	2.24846280002e-84
+a	grosse	0.0
+big	grosse	1.0
+book	grosse	3.18837463187e-70
+house	grosse	7.05957237503e-70
+small	grosse	0.0
+the	grosse	1.14931038854e-17
+a	kleines	1.14931038854e-17
+big	kleines	0.0
+book	kleines	7.05957237503e-70
+house	kleines	3.18837463187e-70
+small	kleines	1.0
+the	kleines	0.0
+a	das	0.0
+big	das	6.12832492701e-15
+book	das	1.2957378507e-31
+house	das	4.32633533599e-84
+small	das	0.0
+the	das	1.0
+a	NULL	0.25
+big	NULL	1.53208123175e-15
+book	NULL	0.25
+house	NULL	0.25
+small	NULL	1.53208123175e-15
+the	NULL	0.25
+a	ein	1.0
+big	ein	0.0
+book	ein	4.32633533599e-84
+house	ein	1.2957378507e-31
+small	ein	6.12832492701e-15
+the	ein	0.0
+
+
+'''
+
+'''
+STUARTS ANSWERS
+
+a buch 1.78038491193e-86
+a haus 1.70632144948e-32
+a grosse 0.0
+a kleines 2.4628363422e-15
+a das 0.0
+a ein 1.0
+house buch 0.0
+house haus 1.0
+house grosse 1.60707569877e-69
+house kleines 1.60707569877e-69
+house das 9.25293333343e-87
+house ein 2.3835114031e-32
+book buch 1.0
+book haus 0.0
+book grosse 1.60707569877e-69
+book kleines 1.60707569877e-69
+book das 2.3835114031e-32
+book ein 9.25293333343e-87
+big buch 3.26489562303e-72
+big haus 7.22900211203e-72
+big grosse 1.0
+big kleines 0.0
+big das 3.76606028116e-18
+big ein 0.0
+small buch 7.22900211203e-72
+small haus 3.26489562303e-72
+small grosse 0.0
+small kleines 1.0
+small das 0.0
+small ein 3.76606028116e-18
+the buch 1.70632144948e-32
+the haus 1.78038491193e-86
+the grosse 2.4628363422e-15
+the kleines 0.0
+the das 1.0
+the ein 0.0
+NULL buch 0.25
+NULL haus 0.25
+NULL grosse 6.15709085549e-16
+NULL kleines 6.15709085549e-16
+NULL das 0.25
+NULL ein 0.25
+'''
+
+'''
+my ANSWERS
+*** Word translation Probabilities
+a	buch	2.24846280002e-84
+a	haus	1.80997897173e-31
+a	grosse	0.0
+a	kleines	1.14931038854e-17
+a	das	0.0
+a	NULL	0.25
+a	ein	1.0
+big	buch	1.27965395288e-67
+big	haus	1.27965395288e-67
+big	grosse	1.0
+big	kleines	0.0
+big	das	6.12832492701e-15
+big	NULL	1.53208123175e-15
+big	ein	0.0
+book	buch	1.0
+book	haus	0.0
+book	grosse	3.18837463187e-70
+book	kleines	7.05957237503e-70
+book	das	1.2957378507e-31
+book	NULL	0.25
+book	ein	4.32633533599e-84
+house	buch	0.0
+house	haus	1.0
+house	grosse	7.05957237503e-70
+house	kleines	3.18837463187e-70
+house	das	4.32633533599e-84
+house	NULL	0.25
+house	ein	1.2957378507e-31
+small	buch	1.27965395288e-67
+small	haus	1.27965395288e-67
+small	grosse	0.0
+small	kleines	1.0
+small	das	0.0
+small	NULL	1.53208123175e-15
+small	ein	6.12832492701e-15
+the	buch	1.80997897173e-31
+the	haus	2.24846280002e-84
+the	grosse	1.14931038854e-17
+the	kleines	0.0
+the	das	1.0
+the	NULL	0.25
+the	ein	0.0
+
+'''
+
+
+2 2 0 1 0.0
+2 2 0 2 3.82683289851e-17
+2 2 1 1 1.0
+2 2 1 2 0.0
+2 2 2 1 0.0
+2 2 2 2 1.0
+2 3 0 1 0.5
+2 3 0 2 0.5
+2 3 1 1 0.5
+2 3 1 2 0.5
+2 3 2 1 0.5
+2 3 2 2 0.5
+3 2 0 1 0.333333333333
+3 2 0 2 0.333333333333
+3 2 1 1 0.333333333333
+3 2 1 2 0.333333333333
+3 2 2 1 0.333333333333
+3 2 2 2 0.333333333333
+
+3 3 0 2 0.0
+3 3 1 2 0.0
+3 3 2 2 1.0 #Same!
+
+3 3 0 1 0.0
+3 3 1 1 1.0 #2-1 my max, which here is the same
+3 3 2 1 0.0

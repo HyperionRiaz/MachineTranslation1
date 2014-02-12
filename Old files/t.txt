@@ -1,0 +1,6 @@
+NULL	a	1
+NULL	big	1
+NULL	book	1
+NULL	house	1
+NULL	small	1
+NULL	the	1

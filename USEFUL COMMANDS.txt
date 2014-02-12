@@ -1,0 +1,92 @@
+COMPARE TWO ALIGNMENTS: python aln2latex.py -s toy.de -t toy.en -f toy.txt -i haa.txt
+
+GETTING ONE ALIGNMENT BIG: python aln2latex.py -s de-en.tiny.de -t de-en.tiny.en -f bigOut.txt
+
+COMPARING TWO BIG ALIGNMENTS python aln2latex.py -s de-en.tiny.de -t de-en.tiny.en -f bigOut.txt -i bigOut2.txt
+
+
+BIGOUT2.TXT IS CORRECT ALIGNMENT OF TINY, HAS NO ALIGNMENTS FOR 'NULL' IE 'I CONSIDER THIS TO BE UNACCEPTABLE'
+
+APPLYING MODEL 1 TO BIG: python apply_ibm1.py de-en.tiny.de de-en.tiny.en tinyTTtrim.txt bigOut2.txt
+
+
+=============== MODEL 1 ============================
+
+== Model 1 and Toy ==
+
+TRAIN: python train_ibm1.py toy.de toy.en model1TTtoy.txt     														
+APPLY: python apply_ibm1.py toy.de toy.en model1TTtoy.txt outAlignModel1Toy.txt
+ALIGN: python aln2latex.py -s toy.de -t toy.en -f outAlignModel1Toy.txt > outAlignModel1Toy.tex
+
+APPLYING INCORRECT TT: python apply_ibm1.py toy.de toy.en model1TTtoy2.txt outAlignModel1Toy2.txt
+
+COMPARING TWO ALIGNMENTS: python aln2latex.py -s toy.de -t toy.en -f outAlignModel1Toy.txt -i outAlignModel1Toy2.txt > outAlignModel1ToyCompare.tex
+
+== Model 1 and Tiny fr-en ==
+
+TRAIN: python train_ibm1.py fr-en.tiny.fr fr-en.tiny.en model1TTtinyfr.txt
+APPLY: python apply_ibm1.py fr-en.tiny.fr fr-en.tiny.en model1TTtinyfr.txt outAlignModel1tinyfr.txt
+ALIGN: python aln2latex.py -s fr-en.tiny.fr -t fr-en.tiny.en -f outAlignModel1tinyfr.txt > outAlignModel1tinyfr.tex
+
+** Doing 100 training iterations rather than 27 **
+
+TRAIN: python train_ibm1.py fr-en.tiny.fr fr-en.tiny.en model1TTtinyfr100.txt
+APPLY: python apply_ibm1.py fr-en.tiny.fr fr-en.tiny.en model1TTtinyfr100.txt outAlignModel1tinyfr100.txt
+ALIGN: python aln2latex.py -s fr-en.tiny.fr -t fr-en.tiny.en -f outAlignModel1tinyfr100.txt > outAlignModel1tinyfr100.tex
+
+** Comparing alignments **
+100VS27 DIFF: python aln2latex.py -s fr-en.tiny.fr -t fr-en.tiny.en -f outAlignModel1tinyfr.txt -f outAlignModel1tinyfr100.txt -d > outAlignModel1ToyCompare27vs100.tex
+
+== Model 1 and Mid fr-en ==
+27 iterations
+
+TRAIN: python train_ibm1.py fr-en.mid.fr fr-en.mid.en model1TTmidfr.txt
+APPLY ON TINY: python apply_ibm1.py fr-en.tiny.fr fr-en.tiny.en model1TTmidfr.txt outAlignModel1tinyfrWithMid.txt
+ALIGN: python aln2latex.py -s fr-en.tiny.fr -t fr-en.tiny.en -f outAlignModel1tinyfrWithMid.txt > outAlignModel1tinyfr28WithMid.tex
+
+** Comparing alignments **
+100 trained on tiny VS 27 trained on mid DIFF: python aln2latex.py -s fr-en.tiny.fr -t fr-en.tiny.en -f outAlignModel1tinyfr100.txt -f outAlignModel1tinyfrWithMid.txt -d > outAlignModel1ToyCompareMidvsTiny.tex
+
+=============== MODEL 2 ============================
+
+== Model 2 and Toy ==
+
+python train-ibm2.py <sourceFile> <targetFile> <transTable> <outputFileTrans> <outputFileDistortion>
+
+TRAIN: python train_ibm2.py toy.de toy.en model1TTtoy.txt model2TTtoy.txt model2DTtoy.txt     														
+APPLY: python apply_ibm1.py toy.de toy.en model1TTtoy.txt outAlignModel1Toy.txt
+ALIGN: python aln2latex.py -s toy.de -t toy.en -f outAlignModel1Toy.txt > outAlignModel1Toy.tex
+
+== Model 2 and Tiny fr-en ==
+
+TRAIN: python train_ibm2.py fr-en.tiny.fr fr-en.tiny.en model1TTtinyfr.txt model2TTtinyfr.txt model2DTtinyfr.txt
+APPLY: python apply_ibm2.py fr-en.tiny.fr fr-en.tiny.en model2TTtinyfr.txt model2DTtinyfr.txt outAlignModel2fr.txt
+ALIGN: python aln2latex.py -s fr-en.tiny.fr -t fr-en.tiny.en -f outAlignModel2fr25.txt > outAlignModel2fr25.tex
+COMPARE: 25 Model 2 vs 100 Model 1 python aln2latex.py -s fr-en.tiny.fr -t fr-en.tiny.en -f outAlignModel1tinyfr100.txt -f outAlignModel2fr25.txt -d > compareModel1Model2.tex
+
+== Model 2 and Tiny de-en  ==
+
+TRAIN: python train_ibm2.py de-en.tiny.de de-en.tiny.en tinyModel1TT.txt model2TTtinyde.txt model2DTtinyde.txt  
+APPLY: python apply_ibm2.py de-en.tiny.de de-en.tiny.en model2TTtinyde.txt model2DTtinyde.txt outAlignModel2Toy.txt
+
+========================= AFRIKAANS - ENGLISH ======================
+
+Model 1:
+
+TRAIN: python train_ibm1.py afr-en.afr afr-en.en model1TTafr.txt
+APPLY: python apply_ibm1.py afr-en.afr afr-en.en model1TTafr.txt outAlignModel1afr.txt
+ALIGN: python aln2latex.py -s afr-en.afr -t afr-en.en -f outAlignModel1afr.txt > outAlignModel1afr.tex
+
+
+== Model 2 and afr-en ==
+
+TRAIN: python train_ibm2.py afr-en.afr afr-en.en model1TTafr.txt model2TTafr.txt model2DTafr.txt
+APPLY: python apply_ibm2.py afr-en.afr afr-en.en model2TTafr.txt model2DTafr.txt outAlignModel2afr.txt
+
+ALIGN: python aln2latex.py -s afr-en.afr -t afr-en.en -f outAlignModel2afr.txt > outAlignModel2afr.tex
+
+
+COMPARE: Model 2 vs Model 1 python aln2latex.py -s afr-en.afr -t afr-en.en -f outAlignModel2afr.txt -f ooutAlignModel2afr.txt -d > compareModel1Model2AFRIKAANS.tex
+
+
+

@@ -1,0 +1,10 @@
+buch	book	1.0
+haus	house	1.0
+grosse	big	1.0
+kleines	small	1.0
+das	the	1.0
+NULL	a	0.25
+NULL	book	0.25
+NULL	house	0.25
+NULL	the	0.25
+ein	a	1.0
